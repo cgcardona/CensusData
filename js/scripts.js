@@ -5,12 +5,12 @@ $(document).ready(function(){
   CensusDataMap.drawMap = function(lat, lon){
     $('#map_canvas').css('height',$(window).height() - 50);
     var markers = [];
-    var lat = lat || 38.828175;
+    var lat = lat || 37.828175;
     var lon = lon || -98.5795;
     var myOptions = {
       center: new google.maps.LatLng(lat, lon),
       zoom: 5,
-      mapTypeId: google.maps.MapTypeId.HYBRID
+      mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     CensusDataMap.map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
