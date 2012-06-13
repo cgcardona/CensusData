@@ -4041,13 +4041,24 @@ $(document).ready(function(){
     //CensusDataMap..setMap(CensusDataMap.map);
   }
 
-  //$.get('http://thedataweb.rm.census.gov/data/2010/sf1?key=7e31eccb17cd6e08aa9e8237b5e496dfee744176&get=P0010001,NAME&for=state:*', function(data) {
-  //  data.shift();
-  //  data.pop();
-  //  data.forEach(function(element){
-  //  //console.log(element);
-  //  });
-  //});
+  $.get('http://thedataweb.rm.census.gov/data/2010/sf1?key=7e31eccb17cd6e08aa9e8237b5e496dfee744176&get=P0010001,NAME&for=state:*', function(data) {
+    data.shift();
+    data.pop();
+    var tmp = [];
+    data.forEach(function(element){
+      tmp.push(parseInt(element[0],10));
+    });
+    data.forEach(function(element){
+      tmp.forEach(function(el){
+        if(el.toString() == element[0]) 
+          console.log(el.toString() + ' ' + element[1]);
+      });
+      tmp.push(parseInt(element[0],10));
+    });
+    //console.log(tmp.sort(function(a,b){return a-b}));
+    console.log(data['563626']);
+    //console.log(data.sort(function(a,b){return a-b}));
+  });
 
   CensusDataMap.drawMap();
 });
