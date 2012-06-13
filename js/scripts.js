@@ -131,9 +131,9 @@ $(document).ready(function(){
 
     CensusDataMap.Alabama = new google.maps.Polygon({
       paths: CensusDataMap.AlabamaCoords,
-      strokeColor: "#FFFF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FFFF00",
       fillOpacity: 0.35
     });
@@ -202,9 +202,9 @@ $(document).ready(function(){
 
     CensusDataMap.Arkansas = new google.maps.Polygon({
       paths: CensusDataMap.ArkansasCoords,
-      strokeColor: "#FFA000",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FFA000",
       fillOpacity: 0.35
     });
@@ -300,9 +300,9 @@ $(document).ready(function(){
 
     CensusDataMap.Arizona = new google.maps.Polygon({
       paths: CensusDataMap.ArizonaCoords,
-      strokeColor: "#B9FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#B9FF00",
       fillOpacity: 0.35
     });
@@ -424,9 +424,9 @@ $(document).ready(function(){
 
     CensusDataMap.California = new google.maps.Polygon({
       paths: CensusDataMap.CaliforniaCoords,
-      strokeColor: "#00ff00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#00ff00",
       fillOpacity: 0.35
     });
@@ -442,9 +442,9 @@ $(document).ready(function(){
 
     CensusDataMap.Colorado = new google.maps.Polygon({
       paths: CensusDataMap.ColoradoCoords,
-      strokeColor: "#F5FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#F5FF00",
       fillOpacity: 0.35
     });
@@ -487,9 +487,9 @@ $(document).ready(function(){
 
     CensusDataMap.Connecticut = new google.maps.Polygon({
       paths: CensusDataMap.ConnecticutCoords,
-      strokeColor: "#FFBE00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FFBE00",
       fillOpacity: 0.35
     });
@@ -519,9 +519,9 @@ $(document).ready(function(){
 
     CensusDataMap.Delaware = new google.maps.Polygon({
       paths: CensusDataMap.DelawareCoords,
-      strokeColor: "#FF2800",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF2800",
       fillOpacity: 0.35
     });
@@ -619,9 +619,9 @@ $(document).ready(function(){
 
     CensusDataMap.Florida = new google.maps.Polygon({
       paths: CensusDataMap.FloridaCoords,
-      strokeColor: "#41FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#41FF00",
       fillOpacity: 0.35
     });
@@ -704,9 +704,9 @@ $(document).ready(function(){
 
     CensusDataMap.Georgia = new google.maps.Polygon({
       paths: CensusDataMap.GeorgiaCoords,
-      strokeColor: "#73FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#73FF00",
       fillOpacity: 0.35
     });
@@ -747,9 +747,9 @@ $(document).ready(function(){
 
     //CensusDataMap.Hawaii = new google.maps.Polygon({
     //  paths: CensusDataMap.HawaiiCoords,
-    //  strokeColor: "#FF0000",
+    //  strokeColor: "#000000",
     //  strokeOpacity: 0.8,
-    //  strokeWeight: 2,
+    //  strokeWeight: 1,
     //  fillColor: "#FF0000",
     //  fillOpacity: 0.35
     //});
@@ -819,9 +819,9 @@ $(document).ready(function(){
 
     CensusDataMap.Iowa = new google.maps.Polygon({
       paths: CensusDataMap.IowaCoords,
-      strokeColor: "#FFB400",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FFB400",
       fillOpacity: 0.35
     });
@@ -955,9 +955,9 @@ $(document).ready(function(){
 
     CensusDataMap.Idaho = new google.maps.Polygon({
       paths: CensusDataMap.IdahoCoords,
-      strokeColor: "#FF5A00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF5A00",
       fillOpacity: 0.35
     });
@@ -1038,9 +1038,9 @@ $(document).ready(function(){
 
     CensusDataMap.Illinois = new google.maps.Polygon({
       paths: CensusDataMap.IllinoisCoords,
-      strokeColor: "#4BFF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#4BFF00",
       fillOpacity: 0.35
     });
@@ -1136,9 +1136,9 @@ $(document).ready(function(){
 
     CensusDataMap.Indiana = new google.maps.Polygon({
       paths: CensusDataMap.IndianaCoords,
-      strokeColor: "#AFFF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#AFFF00",
       fillOpacity: 0.35
     });
@@ -1167,9 +1167,9 @@ $(document).ready(function(){
 
     CensusDataMap.Kansas = new google.maps.Polygon({
       paths: CensusDataMap.KansasCoords,
-      strokeColor: "#FF9600",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF9600",
       fillOpacity: 0.35
     });
@@ -1260,9 +1260,9 @@ $(document).ready(function(){
 
     CensusDataMap.Kentucky = new google.maps.Polygon({
       paths: CensusDataMap.KentuckyCoords,
-      strokeColor: "#FFDC00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FFDC00",
       fillOpacity: 0.35
     });
@@ -1382,9 +1382,9 @@ $(document).ready(function(){
 
     CensusDataMap.Louisiana = new google.maps.Polygon({
       paths: CensusDataMap.LouisianaCoords,
-      strokeColor: "#FFE600",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FFE600",
       fillOpacity: 0.35
     });
@@ -1445,9 +1445,9 @@ $(document).ready(function(){
 
     CensusDataMap.Massachusetts = new google.maps.Polygon({
       paths: CensusDataMap.MassachusettsCoords,
-      strokeColor: "#A5FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#A5FF00",
       fillOpacity: 0.35
     });
@@ -1568,9 +1568,9 @@ $(document).ready(function(){
 
     CensusDataMap.Maryland = new google.maps.Polygon({
       paths: CensusDataMap.MarylandCoords,
-      strokeColor: "#D7FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#D7FF00",
       fillOpacity: 0.35
     });
@@ -1637,9 +1637,9 @@ $(document).ready(function(){
 
     CensusDataMap.Maine = new google.maps.Polygon({
       paths: CensusDataMap.MaineCoords,
-      strokeColor: "#FF5000",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF5000",
       fillOpacity: 0.35
     });
@@ -1766,9 +1766,9 @@ $(document).ready(function(){
 
     CensusDataMap.Michigan = new google.maps.Polygon({
       paths: CensusDataMap.MichiganCoords,
-      strokeColor: "#69FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#69FF00",
       fillOpacity: 0.35
     });
@@ -1867,9 +1867,9 @@ $(document).ready(function(){
 
     CensusDataMap.Minnesota = new google.maps.Polygon({
       paths: CensusDataMap.MinnesotaCoords,
-      strokeColor: "#EBFF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#EBFF00",
       fillOpacity: 0.35
     });
@@ -1945,9 +1945,9 @@ $(document).ready(function(){
 
     CensusDataMap.Missouri = new google.maps.Polygon({
       paths: CensusDataMap.MissouriCoords,
-      strokeColor: "#CDFF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#CDFF00",
       fillOpacity: 0.35
     });
@@ -2042,9 +2042,9 @@ $(document).ready(function(){
 
     CensusDataMap.Mississippi = new google.maps.Polygon({
       paths: CensusDataMap.MississippiCoords,
-      strokeColor: "#FFAA00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FFAA00",
       fillOpacity: 0.35
     });
@@ -2112,9 +2112,9 @@ $(document).ready(function(){
 
     CensusDataMap.Montana = new google.maps.Polygon({
       paths: CensusDataMap.MontanaCoords,
-      strokeColor: "#FF3200",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF3200",
       fillOpacity: 0.35
     });
@@ -2185,9 +2185,9 @@ $(document).ready(function(){
 
     CensusDataMap.NorthCarolina = new google.maps.Polygon({
       paths: CensusDataMap.NorthCarolinaCoords,
-      strokeColor: "#7DFF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#7DFF00",
       fillOpacity: 0.35
     });
@@ -2221,9 +2221,9 @@ $(document).ready(function(){
 
     CensusDataMap.NorthDakota = new google.maps.Polygon({
       paths: CensusDataMap.NorthDakotaCoords,
-      strokeColor: "#FF1400",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF1400",
       fillOpacity: 0.35
     });
@@ -2277,9 +2277,9 @@ $(document).ready(function(){
 
     CensusDataMap.Nebraska = new google.maps.Polygon({
       paths: CensusDataMap.NebraskaCoords,
-      strokeColor: "#FF6400",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF6400",
       fillOpacity: 0.35
     });
@@ -2397,9 +2397,9 @@ $(document).ready(function(){
 
     CensusDataMap.NewHampshire = new google.maps.Polygon({
       paths: CensusDataMap.NewHampshireCoords,
-      strokeColor: "#FF4600",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF4600",
       fillOpacity: 0.35
     });
@@ -2464,9 +2464,9 @@ $(document).ready(function(){
 
     CensusDataMap.NewJersey = new google.maps.Polygon({
       paths: CensusDataMap.NewJerseyCoords,
-      strokeColor: "#87FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#87FF00",
       fillOpacity: 0.35
     });
@@ -2486,9 +2486,9 @@ $(document).ready(function(){
 
     CensusDataMap.NewMexico = new google.maps.Polygon({
       paths: CensusDataMap.NewMexicoCoords,
-      strokeColor: "#FF7800",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF7800",
       fillOpacity: 0.35
     });
@@ -2547,9 +2547,9 @@ $(document).ready(function(){
 
     CensusDataMap.Nevada = new google.maps.Polygon({
       paths: CensusDataMap.NevadaCoords,
-      strokeColor: "#FF8200",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF8200j",
       fillOpacity: 0.35
     });
@@ -2686,9 +2686,9 @@ $(document).ready(function(){
 
     CensusDataMap.NewYork = new google.maps.Polygon({
       paths: CensusDataMap.NewYorkCoords,
-      strokeColor: "#37FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#37FF00",
       fillOpacity: 0.35
     });
@@ -2741,9 +2741,9 @@ $(document).ready(function(){
 
     CensusDataMap.Ohio = new google.maps.Polygon({
       paths: CensusDataMap.OhioCoords,
-      strokeColor: "#5FFF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#5FFF00",
       fillOpacity: 0.35
     });
@@ -2801,9 +2801,9 @@ $(document).ready(function(){
 
     CensusDataMap.Oklahoma = new google.maps.Polygon({
       paths: CensusDataMap.OklahomaCoords,
-      strokeColor: "#FFC800",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FFC800",
       fillOpacity: 0.35
     });
@@ -2939,9 +2939,9 @@ $(document).ready(function(){
 
     CensusDataMap.Oregon = new google.maps.Polygon({
       paths: CensusDataMap.OregonCoords,
-      strokeColor: "#FFD200",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FFD200",
       fillOpacity: 0.35
     });
@@ -2984,9 +2984,9 @@ $(document).ready(function(){
 
     CensusDataMap.Pennsylvania = new google.maps.Polygon({
       paths: CensusDataMap.PennsylvaniaCoords,
-      strokeColor: "#55FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#55FF00",
       fillOpacity: 0.35
     });
@@ -3017,9 +3017,9 @@ $(document).ready(function(){
 
     CensusDataMap.RhodeIsland = new google.maps.Polygon({
       paths: CensusDataMap.RhodeIslandCoords,
-      strokeColor: "#FF3C00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF3C00",
       fillOpacity: 0.35
     });
@@ -3082,9 +3082,9 @@ $(document).ready(function(){
 
     CensusDataMap.SouthCarolina = new google.maps.Polygon({
       paths: CensusDataMap.SouthCarolinaCoords,
-      strokeColor: "#FFF000",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FFF000",
       fillOpacity: 0.35
     });
@@ -3121,9 +3121,9 @@ $(document).ready(function(){
 
     CensusDataMap.SouthDakota = new google.maps.Polygon({
       paths: CensusDataMap.SouthDakotaCoords,
-      strokeColor: "#FF1E00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF1E00",
       fillOpacity: 0.35
     });
@@ -3191,9 +3191,9 @@ $(document).ready(function(){
 
     CensusDataMap.Tennessee = new google.maps.Polygon({
       paths: CensusDataMap.TennesseeCoords,
-      strokeColor: "#C3FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#C3FF00",
       fillOpacity: 0.35
     });
@@ -3375,9 +3375,9 @@ $(document).ready(function(){
 
     CensusDataMap.Texas = new google.maps.Polygon({
       paths: CensusDataMap.TexasCoords,
-      strokeColor: "#2DFF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#2DFF00",
       fillOpacity: 0.35
     });
@@ -3395,9 +3395,9 @@ $(document).ready(function(){
 
     CensusDataMap.Utah = new google.maps.Polygon({
       paths: CensusDataMap.UtahCoords,
-      strokeColor: "#FF8C00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF8C00",
       fillOpacity: 0.35
     });
@@ -3560,9 +3560,9 @@ $(document).ready(function(){
 
     CensusDataMap.Virginia = new google.maps.Polygon({
       paths: CensusDataMap.VirginiaCoords,
-      strokeColor: "#91FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#91FF00",
       fillOpacity: 0.35
     });
@@ -3679,9 +3679,9 @@ $(document).ready(function(){
 
     CensusDataMap.Vermont = new google.maps.Polygon({
       paths: CensusDataMap.VermontCoords,
-      strokeColor: "#FF0A00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF0A00",
       fillOpacity: 0.35
     });
@@ -3815,9 +3815,9 @@ $(document).ready(function(){
 
     CensusDataMap.Washington = new google.maps.Polygon({
       paths: CensusDataMap.WashingtonCoords,
-      strokeColor: "#9BFF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#9BFF00",
       fillOpacity: 0.35
     });
@@ -3893,9 +3893,9 @@ $(document).ready(function(){
 
     CensusDataMap.Wisconsin = new google.maps.Polygon({
       paths: CensusDataMap.WisconsinCoords,
-      strokeColor: "#E1FF00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#E1FF00",
       fillOpacity: 0.35
     });
@@ -4001,9 +4001,9 @@ $(document).ready(function(){
 
     CensusDataMap.WestVirginia = new google.maps.Polygon({
       paths: CensusDataMap.WestVirginiaCoords,
-      strokeColor: "#FF6E00",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#FF6E00",
       fillOpacity: 0.35
     });
@@ -4019,9 +4019,9 @@ $(document).ready(function(){
 
     CensusDataMap.Wyoming = new google.maps.Polygon({
       paths: CensusDataMap.WyomingCoords,
-      strokeColor: "#ffj000",
+      strokeColor: "#000000",
       strokeOpacity: 0.8,
-      strokeWeight: 2,
+      strokeWeight: 1,
       fillColor: "#ff0000",
       fillOpacity: 0.35
     });
@@ -4032,9 +4032,9 @@ $(document).ready(function(){
 
     //CensusDataMap. = new google.maps.Polygon({
     //  paths: CensusDataMap.Coords,
-    //  strokeColor: "#FF0000",
+    //  strokeColor: "#000000",
     //  strokeOpacity: 0.8,
-    //  strokeWeight: 2,
+    //  strokeWeight: 1,
     //  fillColor: "#FF0000",
     //  fillOpacity: 0.35
     //});
