@@ -1,4 +1,25 @@
 'use strict';
+(function($){
+  var methods = {
+    init : function(options)
+    {
+      var settings = $.extend({
+        'name' : 'P0010001'
+      },options);
+    }
+  };
+  $.fn.Census = function(method)
+  {
+    return this.each(function(){
+      if (methods[method])
+        return methods[ method ].apply( this, Array.prototype.slice.call( arguments, 1 ));
+      else if (typeof method === 'object' || ! method)
+        return methods.init.apply(this, arguments);
+      else
+        $.error('Method ' +  method + ' does not exist on jQuery.tooltip');
+    });
+  }
+})(jQuery);
 $(document).ready(function(){
   var CensusData = {};
   var CensusDataMap = Object.create(CensusData);
@@ -4046,12 +4067,13 @@ $(document).ready(function(){
     data.pop();
     var tmp = [];
     data.forEach(function(element){
-      tmp.push(parseInt(element[0],10));
+ //     console.log(element);
+      //tmp.push(parseInt(element[0],10));
     });
-    var foobar = tmp.sort(function(a,b){return a-b});
-    foobar.forEach(function(e){
-      console.log(e + 332928);
-    })
+    //var foobar = tmp.sort(function(a,b){return a-b});
+    //foobar.forEach(function(e){
+    //  console.log(e + 332928);
+    //})
     //data.forEach(function(element){
     //  tmp.forEach(function(el){
     //    if(el.toString() == element[0]) 
@@ -4064,4 +4086,7 @@ $(document).ready(function(){
   });
 
   CensusDataMap.drawMap();
+  $('#map_canvas').Census({
+    'name' : 'P0010001'
+  });
 });
