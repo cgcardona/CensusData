@@ -1,6 +1,7 @@
 'use strict';
 (function($){
-  var methods = {
+  var Census = {};
+  Census.methods = {
     init : function(options)
     {
       // why aren't the options getting passed in here? :-|
@@ -9,7 +10,7 @@
         'name'  : 'P0010001',
         'state' : '*'
       },options);
-      methods.drawMap(settings);
+      Census.methods.drawMap(settings);
     },
     queryAPI : function(settings)
     {
@@ -39,15 +40,14 @@
     },
     drawMap : function(settings)
     {
-      methods.queryAPI(settings);
-      methods.drawPolygons(settings);
+      Census.methods.queryAPI(settings);
+      Census.methods.drawPolygons(settings);
     },
     drawPolygons: function(settings)
     {
-      var CensusData = {};
-      var CensusDataMap = Object.create(CensusData);
+      var CensusMap = Object.create(Census);
 
-      CensusDataMap.drawMap = function(lat,lon){
+      CensusMap.drawMap = function(lat,lon){
         $('#map_canvas').css('height',$(window).height() - 50);
 
         var lat = lat || 37.828175;
@@ -59,11 +59,11 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
-        CensusDataMap.map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+        CensusMap.map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
 
         // state polygon data from http://econym.org.uk/gmap/states.xml
 
-        CensusDataMap.AlaskaCoords = [
+        CensusMap.AlaskaCoords = [
           new google.maps.LatLng(70.0187,-141.0205),
           new google.maps.LatLng(70.1292,-141.7291),
           new google.maps.LatLng(70.4515,-144.8163),
@@ -152,7 +152,7 @@
           new google.maps.LatLng(70.0187,-141.0205)
         ];
 
-        CensusDataMap.AlabamaCoords = [
+        CensusMap.AlabamaCoords = [
         new google.maps.LatLng(35.0041,-88.1955),
         new google.maps.LatLng(34.9918,-85.6068),
         new google.maps.LatLng(32.8404,-85.1756),
@@ -176,17 +176,17 @@
         new google.maps.LatLng(34.9107,-88.1461)
         ];
 
-        CensusDataMap.Alabama = new google.maps.Polygon({
-          paths: CensusDataMap.AlabamaCoords,
+        CensusMap.Alabama = new google.maps.Polygon({
+          paths: CensusMap.AlabamaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FFFF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Alabama.setMap(CensusDataMap.map);
+        CensusMap.Alabama.setMap(CensusMap.map);
 
-        CensusDataMap.ArkansasCoords = [
+        CensusMap.ArkansasCoords = [
           new google.maps.LatLng(33.0225,-94.0416),
           new google.maps.LatLng(33.0075,-91.2057),
           new google.maps.LatLng(33.1180,-91.1989),
@@ -247,17 +247,17 @@
           new google.maps.LatLng(33.0213,-94.0430)
         ];
 
-        CensusDataMap.Arkansas = new google.maps.Polygon({
-          paths: CensusDataMap.ArkansasCoords,
+        CensusMap.Arkansas = new google.maps.Polygon({
+          paths: CensusMap.ArkansasCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FFA000",
           fillOpacity: 0.35
         });
-        CensusDataMap.Arkansas.setMap(CensusDataMap.map);
+        CensusMap.Arkansas.setMap(CensusMap.map);
 
-        CensusDataMap.ArizonaCoords = [
+        CensusMap.ArizonaCoords = [
           new google.maps.LatLng(36.9993,-112.5989),
           new google.maps.LatLng(37.0004,-110.8630),
           new google.maps.LatLng(37.0004,-109.0475),
@@ -345,17 +345,17 @@
           new google.maps.LatLng(37.0001,-114.0508)
         ];
 
-        CensusDataMap.Arizona = new google.maps.Polygon({
-          paths: CensusDataMap.ArizonaCoords,
+        CensusMap.Arizona = new google.maps.Polygon({
+          paths: CensusMap.ArizonaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#B9FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Arizona.setMap(CensusDataMap.map);
+        CensusMap.Arizona.setMap(CensusMap.map);
 
-        CensusDataMap.CaliforniaCoords = [
+        CensusMap.CaliforniaCoords = [
           new google.maps.LatLng(41.9983,-124.4009),
           new google.maps.LatLng(42.0024,-123.6237),
           new google.maps.LatLng(42.0126,-123.1526),
@@ -469,17 +469,17 @@
           new google.maps.LatLng(41.9983,-124.4009)
         ];
 
-        CensusDataMap.California = new google.maps.Polygon({
-          paths: CensusDataMap.CaliforniaCoords,
+        CensusMap.California = new google.maps.Polygon({
+          paths: CensusMap.CaliforniaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#00ff00",
           fillOpacity: 0.35
         });
-        CensusDataMap.California.setMap(CensusDataMap.map);
+        CensusMap.California.setMap(CensusMap.map);
 
-        CensusDataMap.ColoradoCoords = [
+        CensusMap.ColoradoCoords = [
           new google.maps.LatLng(37.0004,-109.0448),
           new google.maps.LatLng(36.9949,-102.0424),
           new google.maps.LatLng(41.0006,-102.0534),
@@ -487,17 +487,17 @@
           new google.maps.LatLng(37.0004,-109.0448)
         ];
 
-        CensusDataMap.Colorado = new google.maps.Polygon({
-          paths: CensusDataMap.ColoradoCoords,
+        CensusMap.Colorado = new google.maps.Polygon({
+          paths: CensusMap.ColoradoCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#F5FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Colorado.setMap(CensusDataMap.map);
+        CensusMap.Colorado.setMap(CensusMap.map);
 
-        CensusDataMap.ConnecticutCoords = [
+        CensusMap.ConnecticutCoords = [
           new google.maps.LatLng(42.0498,-73.4875),
           new google.maps.LatLng(42.0511,-73.4247),
           new google.maps.LatLng(42.0371,-72.8146),
@@ -532,17 +532,17 @@
           new google.maps.LatLng(42.0493,-73.4875)
         ];
 
-        CensusDataMap.Connecticut = new google.maps.Polygon({
-          paths: CensusDataMap.ConnecticutCoords,
+        CensusMap.Connecticut = new google.maps.Polygon({
+          paths: CensusMap.ConnecticutCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FFBE00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Connecticut.setMap(CensusDataMap.map);
+        CensusMap.Connecticut.setMap(CensusMap.map);
 
-        CensusDataMap.DelawareCoords = [
+        CensusMap.DelawareCoords = [
           new google.maps.LatLng(39.7188,-75.7919),
           new google.maps.LatLng(39.5210,-75.7837),
           new google.maps.LatLng(38.9081,-75.7288),
@@ -564,17 +564,17 @@
           new google.maps.LatLng(39.7199,-75.7906)
         ];
 
-        CensusDataMap.Delaware = new google.maps.Polygon({
-          paths: CensusDataMap.DelawareCoords,
+        CensusMap.Delaware = new google.maps.Polygon({
+          paths: CensusMap.DelawareCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF2800",
           fillOpacity: 0.35
         });
-        CensusDataMap.Delaware.setMap(CensusDataMap.map);
+        CensusMap.Delaware.setMap(CensusMap.map);
 
-        CensusDataMap.FloridaCoords = [
+        CensusMap.FloridaCoords = [
           new google.maps.LatLng(30.9988,-87.6050),
           new google.maps.LatLng(30.9964,-86.5613),
           new google.maps.LatLng(31.0035,-85.5313),
@@ -664,17 +664,17 @@
           new google.maps.LatLng(30.9964,-87.6050)
         ];
 
-        CensusDataMap.Florida = new google.maps.Polygon({
-          paths: CensusDataMap.FloridaCoords,
+        CensusMap.Florida = new google.maps.Polygon({
+          paths: CensusMap.FloridaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#41FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Florida.setMap(CensusDataMap.map);
+        CensusMap.Florida.setMap(CensusMap.map);
 
-        CensusDataMap.GeorgiaCoords = [
+        CensusMap.GeorgiaCoords = [
           new google.maps.LatLng(34.9974,-85.6082),
           new google.maps.LatLng(34.9906,-84.7266),
           new google.maps.LatLng(34.9895,-84.1580),
@@ -749,17 +749,17 @@
           new google.maps.LatLng(34.9929,-85.6068)
         ];
 
-        CensusDataMap.Georgia = new google.maps.Polygon({
-          paths: CensusDataMap.GeorgiaCoords,
+        CensusMap.Georgia = new google.maps.Polygon({
+          paths: CensusMap.GeorgiaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#73FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Georgia.setMap(CensusDataMap.map);
+        CensusMap.Georgia.setMap(CensusMap.map);
 
-        CensusDataMap.HawaiiCoords = [
+        CensusMap.HawaiiCoords = [
           new google.maps.LatLng(19.5158,-154.6284),
           new google.maps.LatLng(19.8894,-154.8235),
           new google.maps.LatLng(20.1849,-155.0391),
@@ -792,17 +792,17 @@
           new google.maps.LatLng(19.5158,-154.6271)
         ];
 
-        //CensusDataMap.Hawaii = new google.maps.Polygon({
-        //  paths: CensusDataMap.HawaiiCoords,
+        //CensusMap.Hawaii = new google.maps.Polygon({
+        //  paths: CensusMap.HawaiiCoords,
         //  strokeColor: "#000000",
         //  strokeOpacity: 0.8,
         //  strokeWeight: 1,
         //  fillColor: "#FF0000",
         //  fillOpacity: 0.35
         //});
-        //CensusDataMap.Hawaii.setMap(CensusDataMap.map);
+        //CensusMap.Hawaii.setMap(CensusMap.map);
 
-        CensusDataMap.IowaCoords = [
+        CensusMap.IowaCoords = [
           new google.maps.LatLng(40.5848,-95.7623),
           new google.maps.LatLng(40.5785,-93.5445),
           new google.maps.LatLng(40.6129,-91.7372),
@@ -864,17 +864,17 @@
           new google.maps.LatLng(40.5837,-95.7610)
         ];
 
-        CensusDataMap.Iowa = new google.maps.Polygon({
-          paths: CensusDataMap.IowaCoords,
+        CensusMap.Iowa = new google.maps.Polygon({
+          paths: CensusMap.IowaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FFB400",
           fillOpacity: 0.35
         });
-        CensusDataMap.Iowa.setMap(CensusDataMap.map);
+        CensusMap.Iowa.setMap(CensusMap.map);
 
-        CensusDataMap.IdahoCoords = [
+        CensusMap.IdahoCoords = [
           new google.maps.LatLng(49.0000,-117.0319),
           new google.maps.LatLng(49.0018,-116.0486),
           new google.maps.LatLng(47.9752,-116.0445),
@@ -1000,17 +1000,17 @@
           new google.maps.LatLng(48.9996,-117.0319)
         ];
 
-        CensusDataMap.Idaho = new google.maps.Polygon({
-          paths: CensusDataMap.IdahoCoords,
+        CensusMap.Idaho = new google.maps.Polygon({
+          paths: CensusMap.IdahoCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF5A00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Idaho.setMap(CensusDataMap.map);
+        CensusMap.Idaho.setMap(CensusMap.map);
 
-        CensusDataMap.IllinoisCoords = [
+        CensusMap.IllinoisCoords = [
           new google.maps.LatLng(42.5116,-90.6290),
           new google.maps.LatLng(42.4924,-87.0213),
           new google.maps.LatLng(41.7641,-87.2067),
@@ -1083,17 +1083,17 @@
           new google.maps.LatLng(42.4843,-90.6564)
         ];
 
-        CensusDataMap.Illinois = new google.maps.Polygon({
-          paths: CensusDataMap.IllinoisCoords,
+        CensusMap.Illinois = new google.maps.Polygon({
+          paths: CensusMap.IllinoisCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#4BFF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Illinois.setMap(CensusDataMap.map);
+        CensusMap.Illinois.setMap(CensusMap.map);
 
-        CensusDataMap.IndianaCoords = [
+        CensusMap.IndianaCoords = [
           new google.maps.LatLng(41.7611,-87.5253),
           new google.maps.LatLng(41.7611,-84.8090),
           new google.maps.LatLng(39.0981,-84.8199),
@@ -1181,17 +1181,17 @@
           new google.maps.LatLng(41.7600,-87.5253)
         ];
 
-        CensusDataMap.Indiana = new google.maps.Polygon({
-          paths: CensusDataMap.IndianaCoords,
+        CensusMap.Indiana = new google.maps.Polygon({
+          paths: CensusMap.IndianaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#AFFF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Indiana.setMap(CensusDataMap.map);
+        CensusMap.Indiana.setMap(CensusMap.map);
 
-        CensusDataMap.KansasCoords = [
+        CensusMap.KansasCoords = [
           new google.maps.LatLng(40.0034,-102.0506),
           new google.maps.LatLng(40.0034,-102.0506),
           new google.maps.LatLng(36.9927,-102.0438),
@@ -1212,17 +1212,17 @@
           new google.maps.LatLng(40.0024,-102.0506)
         ];
 
-        CensusDataMap.Kansas = new google.maps.Polygon({
-          paths: CensusDataMap.KansasCoords,
+        CensusMap.Kansas = new google.maps.Polygon({
+          paths: CensusMap.KansasCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF9600",
           fillOpacity: 0.35
         });
-        CensusDataMap.Kansas.setMap(CensusDataMap.map);
+        CensusMap.Kansas.setMap(CensusMap.map);
 
-        CensusDataMap.KentuckyCoords = [
+        CensusMap.KentuckyCoords = [
           new google.maps.LatLng(36.4986,-89.5372),
           new google.maps.LatLng(36.5074,-89.3010),
           new google.maps.LatLng(36.5008,-88.6871),
@@ -1305,17 +1305,17 @@
           new google.maps.LatLng(36.4986,-89.5345)
         ];
 
-        CensusDataMap.Kentucky = new google.maps.Polygon({
-          paths: CensusDataMap.KentuckyCoords,
+        CensusMap.Kentucky = new google.maps.Polygon({
+          paths: CensusMap.KentuckyCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FFDC00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Kentucky.setMap(CensusDataMap.map);
+        CensusMap.Kentucky.setMap(CensusMap.map);
 
-        CensusDataMap.LouisianaCoords = [
+        CensusMap.LouisianaCoords = [
           new google.maps.LatLng(33.0225,-94.0430),
           new google.maps.LatLng(33.0179,-93.0048),
           new google.maps.LatLng(33.0087,-91.1646),
@@ -1427,17 +1427,17 @@
           new google.maps.LatLng(33.0225,-94.0430)
         ];
 
-        CensusDataMap.Louisiana = new google.maps.Polygon({
-          paths: CensusDataMap.LouisianaCoords,
+        CensusMap.Louisiana = new google.maps.Polygon({
+          paths: CensusMap.LouisianaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FFE600",
           fillOpacity: 0.35
         });
-        CensusDataMap.Louisiana.setMap(CensusDataMap.map);
+        CensusMap.Louisiana.setMap(CensusMap.map);
 
-        CensusDataMap.MassachusettsCoords = [
+        CensusMap.MassachusettsCoords = [
           new google.maps.LatLng(42.0003,-72.7789),
           new google.maps.LatLng(42.0330,-72.7405),
           new google.maps.LatLng(42.0330,-72.3779),
@@ -1490,17 +1490,17 @@
           new google.maps.LatLng(42.0024,-72.7803)
         ];
 
-        CensusDataMap.Massachusetts = new google.maps.Polygon({
-          paths: CensusDataMap.MassachusettsCoords,
+        CensusMap.Massachusetts = new google.maps.Polygon({
+          paths: CensusMap.MassachusettsCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#A5FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Massachusetts.setMap(CensusDataMap.map);
+        CensusMap.Massachusetts.setMap(CensusMap.map);
 
-        CensusDataMap.MarylandCoords = [
+        CensusMap.MarylandCoords = [
           new google.maps.LatLng(39.7220,-79.4778),
           new google.maps.LatLng(39.7220,-78.3600),
           new google.maps.LatLng(39.7220,-75.7878),
@@ -1613,17 +1613,17 @@
           new google.maps.LatLng(39.7214,-79.4772)
         ];
 
-        CensusDataMap.Maryland = new google.maps.Polygon({
-          paths: CensusDataMap.MarylandCoords,
+        CensusMap.Maryland = new google.maps.Polygon({
+          paths: CensusMap.MarylandCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#D7FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Maryland.setMap(CensusDataMap.map);
+        CensusMap.Maryland.setMap(CensusMap.map);
 
-        CensusDataMap.MaineCoords = [
+        CensusMap.MaineCoords = [
           new google.maps.LatLng(45.3425,-71.0129),
           new google.maps.LatLng(45.3328,-70.9525),
           new google.maps.LatLng(45.2294,-70.8618),
@@ -1682,17 +1682,17 @@
           new google.maps.LatLng(45.3029,-71.0829)
         ];
 
-        CensusDataMap.Maine = new google.maps.Polygon({
-          paths: CensusDataMap.MaineCoords,
+        CensusMap.Maine = new google.maps.Polygon({
+          paths: CensusMap.MaineCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF5000",
           fillOpacity: 0.35
         });
-        CensusDataMap.Maine.setMap(CensusDataMap.map);
+        CensusMap.Maine.setMap(CensusMap.map);
 
-        CensusDataMap.MichiganCoords = [
+        CensusMap.MichiganCoords = [
           new google.maps.LatLng(48.3033,-88.3713),
           new google.maps.LatLng(48.0101,-87.6050),
           new google.maps.LatLng(46.8902,-84.8584),
@@ -1811,17 +1811,17 @@
           new google.maps.LatLng(48.3042,-88.3726)
         ];
 
-        CensusDataMap.Michigan = new google.maps.Polygon({
-          paths: CensusDataMap.MichiganCoords,
+        CensusMap.Michigan = new google.maps.Polygon({
+          paths: CensusMap.MichiganCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#69FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Michigan.setMap(CensusDataMap.map);
+        CensusMap.Michigan.setMap(CensusMap.map);
 
-        CensusDataMap.MinnesotaCoords = [
+        CensusMap.MinnesotaCoords = [
           new google.maps.LatLng(43.5008,-96.4517),
           new google.maps.LatLng(43.5017,-91.2195),
           new google.maps.LatLng(43.8226,-91.3101),
@@ -1912,17 +1912,17 @@
           new google.maps.LatLng(43.5008,-96.4531)
         ];
 
-        CensusDataMap.Minnesota = new google.maps.Polygon({
-          paths: CensusDataMap.MinnesotaCoords,
+        CensusMap.Minnesota = new google.maps.Polygon({
+          paths: CensusMap.MinnesotaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#EBFF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Minnesota.setMap(CensusDataMap.map);
+        CensusMap.Minnesota.setMap(CensusMap.map);
 
-        CensusDataMap.MissouriCoords = [
+        CensusMap.MissouriCoords = [
           new google.maps.LatLng(40.6181,-91.7468),
           new google.maps.LatLng(40.5597,-91.6809),
           new google.maps.LatLng(40.5472,-91.6260),
@@ -1990,17 +1990,17 @@
           new google.maps.LatLng(40.6140,-91.7358)
         ];
 
-        CensusDataMap.Missouri = new google.maps.Polygon({
-          paths: CensusDataMap.MissouriCoords,
+        CensusMap.Missouri = new google.maps.Polygon({
+          paths: CensusMap.MissouriCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#CDFF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Missouri.setMap(CensusDataMap.map);
+        CensusMap.Missouri.setMap(CensusMap.map);
 
-        CensusDataMap.MississippiCoords = [
+        CensusMap.MississippiCoords = [
           new google.maps.LatLng(35.0041,-90.3049),
           new google.maps.LatLng(35.0075,-88.1955),
           new google.maps.LatLng(34.8882,-88.0994),
@@ -2087,17 +2087,17 @@
           new google.maps.LatLng(35.0041,-90.3062)
         ];
 
-        CensusDataMap.Mississippi = new google.maps.Polygon({
-          paths: CensusDataMap.MississippiCoords,
+        CensusMap.Mississippi = new google.maps.Polygon({
+          paths: CensusMap.MississippiCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FFAA00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Mississippi.setMap(CensusDataMap.map);
+        CensusMap.Mississippi.setMap(CensusMap.map);
 
-        CensusDataMap.MontanaCoords = [
+        CensusMap.MontanaCoords = [
           new google.maps.LatLng(44.4750,-111.0512),
           new google.maps.LatLng(44.7311,-111.3684),
           new google.maps.LatLng(44.6198,-111.5071),
@@ -2157,17 +2157,17 @@
           new google.maps.LatLng(44.4750,-111.0512)
         ];
 
-        CensusDataMap.Montana = new google.maps.Polygon({
-          paths: CensusDataMap.MontanaCoords,
+        CensusMap.Montana = new google.maps.Polygon({
+          paths: CensusMap.MontanaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF3200",
           fillOpacity: 0.35
         });
-        CensusDataMap.Montana.setMap(CensusDataMap.map);
+        CensusMap.Montana.setMap(CensusMap.map);
 
-        CensusDataMap.NorthCarolinaCoords = [
+        CensusMap.NorthCarolinaCoords = [
           new google.maps.LatLng(33.7963,-78.4850),
           new google.maps.LatLng(34.8037,-79.6742),
           new google.maps.LatLng(34.8206,-80.8003),
@@ -2230,17 +2230,17 @@
           new google.maps.LatLng(33.7963,-78.4863)
         ];
 
-        CensusDataMap.NorthCarolina = new google.maps.Polygon({
-          paths: CensusDataMap.NorthCarolinaCoords,
+        CensusMap.NorthCarolina = new google.maps.Polygon({
+          paths: CensusMap.NorthCarolinaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#7DFF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.NorthCarolina.setMap(CensusDataMap.map);
+        CensusMap.NorthCarolina.setMap(CensusMap.map);
 
-        CensusDataMap.NorthDakotaCoords = [
+        CensusMap.NorthDakotaCoords = [
           new google.maps.LatLng(48.9955,-104.0501),
           new google.maps.LatLng(45.9445,-104.0446),
           new google.maps.LatLng(45.9340,-96.5671),
@@ -2266,17 +2266,17 @@
           new google.maps.LatLng(48.9946,-104.0501)
         ];
 
-        CensusDataMap.NorthDakota = new google.maps.Polygon({
-          paths: CensusDataMap.NorthDakotaCoords,
+        CensusMap.NorthDakota = new google.maps.Polygon({
+          paths: CensusMap.NorthDakotaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF1400",
           fillOpacity: 0.35
         });
-        CensusDataMap.NorthDakota.setMap(CensusDataMap.map);
+        CensusMap.NorthDakota.setMap(CensusMap.map);
 
-        CensusDataMap.NebraskaCoords = [
+        CensusMap.NebraskaCoords = [
           new google.maps.LatLng(42.9986,-104.0543),
           new google.maps.LatLng(41.0027,-104.0543),
           new google.maps.LatLng(41.0006,-102.0506),
@@ -2322,17 +2322,17 @@
           new google.maps.LatLng(43.0006,-104.0543)
         ];
 
-        CensusDataMap.Nebraska = new google.maps.Polygon({
-          paths: CensusDataMap.NebraskaCoords,
+        CensusMap.Nebraska = new google.maps.Polygon({
+          paths: CensusMap.NebraskaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF6400",
           fillOpacity: 0.35
         });
-        CensusDataMap.Nebraska.setMap(CensusDataMap.map);
+        CensusMap.Nebraska.setMap(CensusMap.map);
 
-        CensusDataMap.NewHampshireCoords = [
+        CensusMap.NewHampshireCoords = [
           new google.maps.LatLng(45.0153,-71.5045),
           new google.maps.LatLng(45.0532,-71.4977),
           new google.maps.LatLng(45.0910,-71.4619),
@@ -2442,17 +2442,17 @@
           new google.maps.LatLng(45.0163,-71.5045)
         ];
 
-        CensusDataMap.NewHampshire = new google.maps.Polygon({
-          paths: CensusDataMap.NewHampshireCoords,
+        CensusMap.NewHampshire = new google.maps.Polygon({
+          paths: CensusMap.NewHampshireCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF4600",
           fillOpacity: 0.35
         });
-        CensusDataMap.NewHampshire.setMap(CensusDataMap.map);
+        CensusMap.NewHampshire.setMap(CensusMap.map);
 
-        CensusDataMap.NewJerseyCoords = [
+        CensusMap.NewJerseyCoords = [
           new google.maps.LatLng(41.3572,-74.6950),
           new google.maps.LatLng(41.3394,-74.6559),
           new google.maps.LatLng(40.9934,-73.8940),
@@ -2509,17 +2509,17 @@
           new google.maps.LatLng(41.3593,-74.6960)
         ];
 
-        CensusDataMap.NewJersey = new google.maps.Polygon({
-          paths: CensusDataMap.NewJerseyCoords,
+        CensusMap.NewJersey = new google.maps.Polygon({
+          paths: CensusMap.NewJerseyCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#87FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.NewJersey.setMap(CensusDataMap.map);
+        CensusMap.NewJersey.setMap(CensusMap.map);
 
-        CensusDataMap.NewMexicoCoords = [
+        CensusMap.NewMexicoCoords = [
           new google.maps.LatLng(36.9971,-109.0448),
           new google.maps.LatLng(31.3337,-109.0489),
           new google.maps.LatLng(31.3349,-108.2140),
@@ -2531,17 +2531,17 @@
           new google.maps.LatLng(36.9982,-109.0475)
         ];
 
-        CensusDataMap.NewMexico = new google.maps.Polygon({
-          paths: CensusDataMap.NewMexicoCoords,
+        CensusMap.NewMexico = new google.maps.Polygon({
+          paths: CensusMap.NewMexicoCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF7800",
           fillOpacity: 0.35
         });
-        CensusDataMap.NewMexico.setMap(CensusDataMap.map);
+        CensusMap.NewMexico.setMap(CensusMap.map);
 
-        CensusDataMap.NevadaCoords = [
+        CensusMap.NevadaCoords = [
           new google.maps.LatLng(41.9922,-120.0037),
           new google.maps.LatLng(42.0003,-117.9602),
           new google.maps.LatLng(42.0003,-117.0264),
@@ -2592,17 +2592,17 @@
           new google.maps.LatLng(41.9942,-119.9982)
         ];
 
-        CensusDataMap.Nevada = new google.maps.Polygon({
-          paths: CensusDataMap.NevadaCoords,
+        CensusMap.Nevada = new google.maps.Polygon({
+          paths: CensusMap.NevadaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF8200j",
           fillOpacity: 0.35
         });
-        CensusDataMap.Nevada.setMap(CensusDataMap.map);
+        CensusMap.Nevada.setMap(CensusMap.map);
 
-        CensusDataMap.NewYorkCoords = [
+        CensusMap.NewYorkCoords = [
           new google.maps.LatLng(42.5142,-79.7624),
           new google.maps.LatLng(42.7783,-79.0672),
           new google.maps.LatLng(42.8508,-78.9313),
@@ -2731,17 +2731,17 @@
           new google.maps.LatLng(42.5146,-79.7621)
         ];
 
-        CensusDataMap.NewYork = new google.maps.Polygon({
-          paths: CensusDataMap.NewYorkCoords,
+        CensusMap.NewYork = new google.maps.Polygon({
+          paths: CensusMap.NewYorkCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#37FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.NewYork.setMap(CensusDataMap.map);
+        CensusMap.NewYork.setMap(CensusMap.map);
 
-        CensusDataMap.OhioCoords = [
+        CensusMap.OhioCoords = [
           new google.maps.LatLng(38.4385,-82.3425),
           new google.maps.LatLng(38.5707,-82.2917),
           new google.maps.LatLng(38.5965,-82.1722),
@@ -2786,17 +2786,17 @@
           new google.maps.LatLng(38.3761,-82.5952)
         ];
 
-        CensusDataMap.Ohio = new google.maps.Polygon({
-          paths: CensusDataMap.OhioCoords,
+        CensusMap.Ohio = new google.maps.Polygon({
+          paths: CensusMap.OhioCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#5FFF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Ohio.setMap(CensusDataMap.map);
+        CensusMap.Ohio.setMap(CensusMap.map);
 
-        CensusDataMap.OklahomaCoords = [
+        CensusMap.OklahomaCoords = [
           new google.maps.LatLng(37.0015,-103.0051),
           new google.maps.LatLng(36.5030,-103.0037),
           new google.maps.LatLng(36.4986,-100.0003),
@@ -2846,17 +2846,17 @@
           new google.maps.LatLng(37.0004,-103.0064)
         ];
 
-        CensusDataMap.Oklahoma = new google.maps.Polygon({
-          paths: CensusDataMap.OklahomaCoords,
+        CensusMap.Oklahoma = new google.maps.Polygon({
+          paths: CensusMap.OklahomaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FFC800",
           fillOpacity: 0.35
         });
-        CensusDataMap.Oklahoma.setMap(CensusDataMap.map);
+        CensusMap.Oklahoma.setMap(CensusMap.map);
 
-        CensusDataMap.OregonCoords = [
+        CensusMap.OregonCoords = [
           new google.maps.LatLng(46.2587,-124.2444),
           new google.maps.LatLng(46.2634,-124.0384),
           new google.maps.LatLng(46.2891,-124.0205),
@@ -2984,17 +2984,17 @@
           new google.maps.LatLng(46.2587,-124.2444)
         ];
 
-        CensusDataMap.Oregon = new google.maps.Polygon({
-          paths: CensusDataMap.OregonCoords,
+        CensusMap.Oregon = new google.maps.Polygon({
+          paths: CensusMap.OregonCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FFD200",
           fillOpacity: 0.35
         });
-        CensusDataMap.Oregon.setMap(CensusDataMap.map);
+        CensusMap.Oregon.setMap(CensusMap.map);
 
-        CensusDataMap.PennsylvaniaCoords = [
+        CensusMap.PennsylvaniaCoords = [
           new google.maps.LatLng(42.3261,-80.5174),
           new google.maps.LatLng(42.3961,-80.0821),
           new google.maps.LatLng(42.5167,-79.7621),
@@ -3029,17 +3029,17 @@
           new google.maps.LatLng(42.3240,-80.5202)
         ];
 
-        CensusDataMap.Pennsylvania = new google.maps.Polygon({
-          paths: CensusDataMap.PennsylvaniaCoords,
+        CensusMap.Pennsylvania = new google.maps.Polygon({
+          paths: CensusMap.PennsylvaniaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#55FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Pennsylvania.setMap(CensusDataMap.map);
+        CensusMap.Pennsylvania.setMap(CensusMap.map);
 
-        CensusDataMap.RhodeIslandCoords = [
+        CensusMap.RhodeIslandCoords = [
           new google.maps.LatLng(41.3706,-71.0568),
           new google.maps.LatLng(41.3706,-71.0541),
           new google.maps.LatLng(41.6339,-71.1447),
@@ -3062,17 +3062,17 @@
           new google.maps.LatLng(41.2665,-71.4084)
         ];
 
-        CensusDataMap.RhodeIsland = new google.maps.Polygon({
-          paths: CensusDataMap.RhodeIslandCoords,
+        CensusMap.RhodeIsland = new google.maps.Polygon({
+          paths: CensusMap.RhodeIslandCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF3C00",
           fillOpacity: 0.35
         });
-        CensusDataMap.RhodeIsland.setMap(CensusDataMap.map);
+        CensusMap.RhodeIsland.setMap(CensusMap.map);
 
-        CensusDataMap.SouthCarolinaCoords = [
+        CensusMap.SouthCarolinaCoords = [
           new google.maps.LatLng(32.0488,-80.7001),
           new google.maps.LatLng(32.0453,-80.8978),
           new google.maps.LatLng(32.1105,-81.1134),
@@ -3127,17 +3127,17 @@
           new google.maps.LatLng(32.0500,-80.7001)
         ];
 
-        CensusDataMap.SouthCarolina = new google.maps.Polygon({
-          paths: CensusDataMap.SouthCarolinaCoords,
+        CensusMap.SouthCarolina = new google.maps.Polygon({
+          paths: CensusMap.SouthCarolinaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FFF000",
           fillOpacity: 0.35
         });
-        CensusDataMap.SouthCarolina.setMap(CensusDataMap.map);
+        CensusMap.SouthCarolina.setMap(CensusMap.map);
 
-        CensusDataMap.SouthDakotaCoords = [
+        CensusMap.SouthDakotaCoords = [
           new google.maps.LatLng(45.9435,-104.0501),
           new google.maps.LatLng(43.0026,-104.0529),
           new google.maps.LatLng(42.9946,-98.4993),
@@ -3166,17 +3166,17 @@
           new google.maps.LatLng(45.9416,-104.0501)
         ];
 
-        CensusDataMap.SouthDakota = new google.maps.Polygon({
-          paths: CensusDataMap.SouthDakotaCoords,
+        CensusMap.SouthDakota = new google.maps.Polygon({
+          paths: CensusMap.SouthDakotaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF1E00",
           fillOpacity: 0.35
         });
-        CensusDataMap.SouthDakota.setMap(CensusDataMap.map);
+        CensusMap.SouthDakota.setMap(CensusMap.map);
 
-        CensusDataMap.TennesseeCoords = [
+        CensusMap.TennesseeCoords = [
           new google.maps.LatLng(36.6739,-88.0678),
           new google.maps.LatLng(36.6354,-87.8522),
           new google.maps.LatLng(36.6023,-83.6787),
@@ -3236,17 +3236,17 @@
           new google.maps.LatLng(36.6871,-88.0637)
         ];
 
-        CensusDataMap.Tennessee = new google.maps.Polygon({
-          paths: CensusDataMap.TennesseeCoords,
+        CensusMap.Tennessee = new google.maps.Polygon({
+          paths: CensusMap.TennesseeCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#C3FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Tennessee.setMap(CensusDataMap.map);
+        CensusMap.Tennessee.setMap(CensusMap.map);
 
-        CensusDataMap.TexasCoords = [
+        CensusMap.TexasCoords = [
           new google.maps.LatLng(31.8659,-106.5715),
           new google.maps.LatLng(31.7504,-106.5042),
           new google.maps.LatLng(31.6242,-106.3092),
@@ -3420,17 +3420,17 @@
           new google.maps.LatLng(32.0023,-106.6168)
         ];
 
-        CensusDataMap.Texas = new google.maps.Polygon({
-          paths: CensusDataMap.TexasCoords,
+        CensusMap.Texas = new google.maps.Polygon({
+          paths: CensusMap.TexasCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#2DFF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Texas.setMap(CensusDataMap.map);
+        CensusMap.Texas.setMap(CensusMap.map);
 
-        CensusDataMap.UtahCoords = [
+        CensusMap.UtahCoords = [
           new google.maps.LatLng(36.9982,-114.0491),
           new google.maps.LatLng(37.0026,-109.0462),
           new google.maps.LatLng(40.9986,-109.0503),
@@ -3440,17 +3440,17 @@
           new google.maps.LatLng(37.0015,-114.0504)
         ];
 
-        CensusDataMap.Utah = new google.maps.Polygon({
-          paths: CensusDataMap.UtahCoords,
+        CensusMap.Utah = new google.maps.Polygon({
+          paths: CensusMap.UtahCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF8C00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Utah.setMap(CensusDataMap.map);
+        CensusMap.Utah.setMap(CensusMap.map);
 
-        CensusDataMap.VirginiaCoords = [
+        CensusMap.VirginiaCoords = [
           new google.maps.LatLng(36.6017,-83.6753),
           new google.maps.LatLng(36.6519,-83.5613),
           new google.maps.LatLng(36.6673,-83.4432),
@@ -3605,17 +3605,17 @@
           new google.maps.LatLng(36.6023,-83.6746)
         ];
 
-        CensusDataMap.Virginia = new google.maps.Polygon({
-          paths: CensusDataMap.VirginiaCoords,
+        CensusMap.Virginia = new google.maps.Polygon({
+          paths: CensusMap.VirginiaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#91FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Virginia.setMap(CensusDataMap.map);
+        CensusMap.Virginia.setMap(CensusMap.map);
 
-        CensusDataMap.VermontCoords = [
+        CensusMap.VermontCoords = [
           new google.maps.LatLng(45.0104,-73.3427),
           new google.maps.LatLng(45.0134,-73.1827),
           new google.maps.LatLng(45.0153,-72.7432),
@@ -3724,17 +3724,17 @@
           new google.maps.LatLng(45.0104,-73.3426)
         ];
 
-        CensusDataMap.Vermont = new google.maps.Polygon({
-          paths: CensusDataMap.VermontCoords,
+        CensusMap.Vermont = new google.maps.Polygon({
+          paths: CensusMap.VermontCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF0A00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Vermont.setMap(CensusDataMap.map);
+        CensusMap.Vermont.setMap(CensusMap.map);
 
-        CensusDataMap.WashingtonCoords = [
+        CensusMap.WashingtonCoords = [
           new google.maps.LatLng(49.0023,-123.3208),
           new google.maps.LatLng(49.0027,-123.0338),
           new google.maps.LatLng(49.0018,-122.0650),
@@ -3860,17 +3860,17 @@
           new google.maps.LatLng(49.0023,-123.3215)
         ];
 
-        CensusDataMap.Washington = new google.maps.Polygon({
-          paths: CensusDataMap.WashingtonCoords,
+        CensusMap.Washington = new google.maps.Polygon({
+          paths: CensusMap.WashingtonCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#9BFF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Washington.setMap(CensusDataMap.map);
+        CensusMap.Washington.setMap(CensusMap.map);
 
-        CensusDataMap.WisconsinCoords = [
+        CensusMap.WisconsinCoords = [
           new google.maps.LatLng(42.5116,-90.6303),
           new google.maps.LatLng(42.4954,-87.0241),
           new google.maps.LatLng(43.3721,-87.1477),
@@ -3938,17 +3938,17 @@
           new google.maps.LatLng(42.5096,-90.6303)
         ];
 
-        CensusDataMap.Wisconsin = new google.maps.Polygon({
-          paths: CensusDataMap.WisconsinCoords,
+        CensusMap.Wisconsin = new google.maps.Polygon({
+          paths: CensusMap.WisconsinCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#E1FF00",
           fillOpacity: 0.35
         });
-        CensusDataMap.Wisconsin.setMap(CensusDataMap.map);
+        CensusMap.Wisconsin.setMap(CensusMap.map);
 
-        CensusDataMap.WestVirginiaCoords = [
+        CensusMap.WestVirginiaCoords = [
           new google.maps.LatLng(39.7188,-79.4765),
           new google.maps.LatLng(39.2057,-79.4806),
           new google.maps.LatLng(39.4871,-79.0576),
@@ -4046,17 +4046,17 @@
           new google.maps.LatLng(39.7209,-79.4778)
         ];
 
-        CensusDataMap.WestVirginia = new google.maps.Polygon({
-          paths: CensusDataMap.WestVirginiaCoords,
+        CensusMap.WestVirginia = new google.maps.Polygon({
+          paths: CensusMap.WestVirginiaCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#FF6E00",
           fillOpacity: 0.35
         });
-        CensusDataMap.WestVirginia.setMap(CensusDataMap.map);
+        CensusMap.WestVirginia.setMap(CensusMap.map);
 
-        CensusDataMap.WyomingCoords = [
+        CensusMap.WyomingCoords = [
           new google.maps.LatLng(41.0037,-104.0556),
           new google.maps.LatLng(44.9949,-104.0584),
           new google.maps.LatLng(44.9998,-111.0539),
@@ -4064,49 +4064,41 @@
           new google.maps.LatLng(41.0006,-104.0556)
         ];
 
-        CensusDataMap.Wyoming = new google.maps.Polygon({
-          paths: CensusDataMap.WyomingCoords,
+        CensusMap.Wyoming = new google.maps.Polygon({
+          paths: CensusMap.WyomingCoords,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: 1,
           fillColor: "#ff0000",
           fillOpacity: 0.35
         });
-        CensusDataMap.Wyoming.setMap(CensusDataMap.map);
+        CensusMap.Wyoming.setMap(CensusMap.map);
 
-        //CensusDataMap.Coords = [
+        //CensusMap.Coords = [
         //];
 
-        //CensusDataMap. = new google.maps.Polygon({
-        //  paths: CensusDataMap.Coords,
+        //CensusMap. = new google.maps.Polygon({
+        //  paths: CensusMap.Coords,
         //  strokeColor: "#000000",
         //  strokeOpacity: 0.8,
         //  strokeWeight: 1,
         //  fillColor: "#FF0000",
         //  fillOpacity: 0.35
         //});
-        //CensusDataMap..setMap(CensusDataMap.map);
+        //CensusMap..setMap(CensusMap.map);
       }
-  CensusDataMap.drawMap();
+  CensusMap.drawMap();
     }
   };
   $.fn.Census = function(method)
   {
     return this.each(function(){
-      if (methods[method])
-        return methods[ method ].apply( this, Array.prototype.slice.call(arguments,1));
+      if (Census.methods[method])
+        return Census.methods[ method ].apply( this, Array.prototype.slice.call(arguments,1));
       else if (typeof method === 'object' || ! method)
-        return methods.init.apply(this,arguments);
+        return Census.methods.init.apply(this,arguments);
       else
         $.error('Method ' +  method + ' does not exist on jQuery.Census');
     });
   }
 })(jQuery);
-
-$(document).ready(function(){
-  $('#map_canvas').Census({
-    key   : '7e31eccb17cd6e08aa9e8237b5e496dfee744176',
-    name  : 'P0010001',
-    state : 'foo'
-  });
-});
