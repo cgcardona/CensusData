@@ -4,19 +4,23 @@
   Census.methods = {
     init : function(options)
     {
-      // why aren't the options getting passed in here? :-|
       var settings = $.extend({
-        'key'   : '7e31eccb17cd6e08aa9e8237b5e496dfee744176',
-        'name'  : 'P0010001',
-        'state' : '*'
+        'key'     : '7e31eccb17cd6e08aa9e8237b5e496dfee744176',
+        'name'    : 'P0010001',
+        'state'   : '*',
+        'dataset' : 'sf1'
       },options);
       Census.methods.drawMap(settings);
     },
     queryAPI : function(settings)
     {
-      $.get('http://thedataweb.rm.census.gov/data/2010/sf1?key=' + settings.key + '&get=' + settings.name + ',NAME&for=state:' + settings.state, function(data) {
-        //console.log(data);
+      $.get('http://thedataweb.rm.census.gov/data/2010/' + settings.dataset + '?key=' + settings.key + '&get=' + settings.name + ',NAME&for=state:' + settings.state, function(data) {
+        console.log(data);
+        
+        // The data comes back with the first array being useless so shift it off.
         data.shift();
+
+        // Also the data has Puerto Rico data which I won't be using for this so pop it off the end of the array
         data.pop();
         var tmp = [];
         data.forEach(function(element){
@@ -4092,13 +4096,15 @@
   };
   $.fn.Census = function(method)
   {
+    if (Census.methods[method])
+      return Census.methods[ method ].apply( this, Array.prototype.slice.call(arguments,1));
+    else if (typeof method === 'object' || ! method)
+      return Census.methods.init.apply(this,arguments);
+    else
+      $.error('Method ' +  method + ' does not exist on jQuery.Census');
+
+    // how to maintain chainability
     return this.each(function(){
-      if (Census.methods[method])
-        return Census.methods[ method ].apply( this, Array.prototype.slice.call(arguments,1));
-      else if (typeof method === 'object' || ! method)
-        return Census.methods.init.apply(this,arguments);
-      else
-        $.error('Method ' +  method + ' does not exist on jQuery.Census');
     });
   }
 })(jQuery);
