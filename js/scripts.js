@@ -33,17 +33,23 @@
     },
     queryAPI : function()
     {
+      //console.log('http://thedataweb.rm.census.gov/data/2010/' + Census.settings.dataset + '?key=' + Census.settings.key + '&get=' + Census.settings.name + ',NAME&for=state:' + Census.settings.state);
       $.get('http://thedataweb.rm.census.gov/data/2010/' + Census.settings.dataset + '?key=' + Census.settings.key + '&get=' + Census.settings.name + ',NAME&for=state:' + Census.settings.state, function(data) {
-        //console.log(data);
-        
         // The data comes back with the first array being useless so shift it off.
         data.shift();
 
-        // Also the data has Puerto Rico data which I won't be using for this so pop it off the end of the array
-        data.pop();
+        var names = Object.getOwnPropertyNames(Census.settings.polygonData);
+        names.forEach(function(el){
+          data.forEach(function(e){
+            if(e[1] == el)
+              Census.settings.polygonData[el].push(e[0]);
+          });
+        });
+        //console.log(data,names);
+
         var tmp = [];
         data.forEach(function(element){
-        //     console.log(element);
+             //console.log(element);
           //tmp.push(parseInt(element[0],10));
         });
         //var foobar = tmp.sort(function(a,b){return a-b});
@@ -65,19 +71,23 @@
     {
       // state polygon data from http://econym.org.uk/gmap/states.xml
       var tmpArray = [];
-      $.each(Census.settings.polygonData,function(key,value){ 
-        value.forEach(function(el){
+      console.log(Census.settings.polygonData);
+      $.each(Census.settings.polygonData,function(key,value)
+      { 
+        value.forEach(function(el)
+        {
           tmpArray.push(new google.maps.LatLng(el[0],el[1]));
         });
-        Census.map.Ohio = new google.maps.Polygon({
+        Census.map.Polygon = new google.maps.Polygon(
+        {
           paths: tmpArray,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
           strokeWeight: .5,
-          fillColor: "#FFFF00",
-          fillOpacity: 0.35
+          fillColor: '#'+Math.floor(Math.random()*16777215).toString(16),
+          fillOpacity: 0.65
         });
-        Census.map.Ohio.setMap(Census.map);
+        Census.map.Polygon.setMap(Census.map);
         tmpArray = [];
       });
     }
