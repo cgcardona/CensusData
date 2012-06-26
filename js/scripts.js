@@ -61,22 +61,25 @@
         //console.log(data.sort(function(a,b){return a-b}));
       });
     },
-    drawPolygons : function(state)
+    drawPolygons : function()
     {
       // state polygon data from http://econym.org.uk/gmap/states.xml
       var tmpArray = [];
-      Census.settings.polygonData.Ohio.forEach(function(element){
-        tmpArray.push(new google.maps.LatLng(element[0],element[1]));
+      $.each(Census.settings.polygonData,function(key,value){ 
+        value.forEach(function(el){
+          tmpArray.push(new google.maps.LatLng(el[0],el[1]));
+        });
+        Census.map.Ohio = new google.maps.Polygon({
+          paths: tmpArray,
+          strokeColor: "#000000",
+          strokeOpacity: 0.8,
+          strokeWeight: .5,
+          fillColor: "#FFFF00",
+          fillOpacity: 0.35
+        });
+        Census.map.Ohio.setMap(Census.map);
+        tmpArray = [];
       });
-      Census.map.Ohio = new google.maps.Polygon({
-        paths: tmpArray,
-        strokeColor: "#000000",
-        strokeOpacity: 0.8,
-        strokeWeight: .5,
-        fillColor: "#FFFF00",
-        fillOpacity: 0.35
-      });
-      Census.map.Ohio.setMap(Census.map);
     }
   };
   $.fn.Census = function(method)
