@@ -20,11 +20,8 @@
     {
       $('#map_canvas').css('height',$(window).height() - 50);
 
-      var lat = lat || 37.828175;
-      var lon = lon || -98.5795;
-
       var myOptions = {
-        center: new google.maps.LatLng(lat, lon),
+        center: new google.maps.LatLng(Census.settings.latitude,Census.settings.longitude),
         zoom: Census.settings.zoom,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
@@ -33,47 +30,73 @@
     },
     queryAPI : function()
     {
-      //console.log('http://thedataweb.rm.census.gov/data/2010/' + Census.settings.dataset + '?key=' + Census.settings.key + '&get=' + Census.settings.name + ',NAME&for=state:' + Census.settings.state);
       $.get('http://thedataweb.rm.census.gov/data/2010/' + Census.settings.dataset + '?key=' + Census.settings.key + '&get=' + Census.settings.name + ',NAME&for=state:' + Census.settings.state, function(data) {
+
         // The data comes back with the first array being useless so shift it off.
         data.shift();
+        //console.log(data);
+        var data_obj = {};
+        var data_arr = [];
+        data.forEach(function(m){
+          data_obj[m[1]] = m[0];
+          data_arr.push(parseInt(m[0],10));
+        });
+
+        var sorted_array = data_arr.sort(function(a,b){return a-b});
+          console.log(data_obj);
+          //console.log(data_arr);
+
+        var data_object_props = Object.getOwnPropertyNames(data_obj);
+        sorted_array.forEach(function(n){
+          data_arr.forEach(function(o){
+            
+          });
+          //console.log(n);
+        });
+
+
+
+        var tmp_values = [];
+        var foo_values = [];
+        tmp_values[0] = [];
+        tmp_values[1] = [];
 
         var names = Object.getOwnPropertyNames(Census.settings.polygonData);
         names.forEach(function(el){
           data.forEach(function(e){
             if(e[1] == el)
+            {
+              foo_values.push(parseInt(e[0],10));
+              tmp_values[0].push(parseInt(e[0],10));
+              tmp_values[1].push(e[1]);
               Census.settings.polygonData[el].push(e[0]);
+            }
           });
         });
-        //console.log(data,names);
-
-        var tmp = [];
-        data.forEach(function(element){
-             //console.log(element);
-          //tmp.push(parseInt(element[0],10));
-        });
-        //var foobar = tmp.sort(function(a,b){return a-b});
-        //foobar.forEach(function(e){
-        //  console.log(e + 332928);
-        //})
-        //data.forEach(function(element){
-        //  tmp.forEach(function(el){
-        //    if(el.toString() == element[0]) 
-        //      //console.log(el.toString() + ' ' + element[1]);
+        //var new_array = foo_values.sort(function(a,b){return a-b});
+        //new_array.forEach(function(el){
+        //  tmp_values[0].forEach(function(j){
+        //    if(j[0] = el)
+        //      console.log(el);
         //  });
-        //  tmp.push(parseInt(element[0],10));
+        ////console.log(el);
         //});
-        //console.log(data['563626']);
-        //console.log(data.sort(function(a,b){return a-b}));
+        //console.log(foo_values.sort(function(a,b){return a-b}));
+        //console.log(tmp_values);
       });
     },
     drawPolygons : function()
     {
       // state polygon data from http://econym.org.uk/gmap/states.xml
       var tmpArray = [];
-      console.log(Census.settings.polygonData);
+      var names = Object.getOwnPropertyNames(Census.settings.polygonData);
+      $.each(names,function(k,v){
+        //console.log(Census.settings.polygonData[v].pop());
+      });
+     // console.log(Census.settings.polygonData);
       $.each(Census.settings.polygonData,function(key,value)
       { 
+      //  console.log(value);
         value.forEach(function(el)
         {
           tmpArray.push(new google.maps.LatLng(el[0],el[1]));
@@ -83,7 +106,7 @@
           paths: tmpArray,
           strokeColor: "#000000",
           strokeOpacity: 0.8,
-          strokeWeight: .5,
+          strokeWeight: 0.5,
           fillColor: '#'+Math.floor(Math.random()*16777215).toString(16),
           fillOpacity: 0.65
         });
@@ -104,5 +127,5 @@
     // how to maintain chainability??
     return this.each(function(){
     });
-  }
+  };
 })(jQuery);
